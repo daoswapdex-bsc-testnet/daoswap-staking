@@ -1,7 +1,7 @@
 export const StakingInviterTokenAddress =
   "0xdb5D970F03bfD19c1E51D57BcEd114BC35A0808f";
 export const StakingInviterContractAddress =
-  "0xf5fF30d35053470d61574d152930c746Cbb27b28";
+  "0xaca06d5804c709eC564A580426132EDaE63eF831";
 
 /********** base **********/
 export const DAOAddress = "0xdb5D970F03bfD19c1E51D57BcEd114BC35A0808f";

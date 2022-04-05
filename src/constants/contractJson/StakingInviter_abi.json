@@ -27,19 +27,9 @@
         "type": "uint256"
       },
       {
-        "internalType": "uint256",
-        "name": "_cap",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_maxStakingAmount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_minStakingAmount",
-        "type": "uint256"
+        "internalType": "uint256[]",
+        "name": "_stakingAmount",
+        "type": "uint256[]"
       },
       {
         "internalType": "address",
@@ -48,13 +38,18 @@
       },
       {
         "internalType": "address",
-        "name": "_stakingNodeTokenAddress",
+        "name": "_stakingRecordAddress",
         "type": "address"
       },
       {
         "internalType": "address",
-        "name": "_burnTokenAddress",
+        "name": "_stakingNodeTokenAddress",
         "type": "address"
+      },
+      {
+        "internalType": "address[]",
+        "name": "_burnAddress",
+        "type": "address[]"
       },
       {
         "internalType": "address payable",
@@ -119,6 +114,20 @@
     "outputs": [
       {
         "internalType": "address payable",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "burnRewardTokenAddress",
+    "outputs": [
+      {
+        "internalType": "address",
         "name": "",
         "type": "address"
       }
@@ -337,6 +346,78 @@
       }
     ],
     "name": "getTokenVestingAddressByAccount",
+    "outputs": [
+      {
+        "internalType": "address[]",
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "vestingToken",
+        "type": "address"
+      }
+    ],
+    "name": "getVestingTokenInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "vestingToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "account",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "stakingAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "period",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "start",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "end",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct IStakingRecord.StakingRecordItem",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "getVestingTokenList",
     "outputs": [
       {
         "internalType": "address[]",
@@ -762,6 +843,20 @@
   },
   {
     "inputs": [],
+    "name": "stakingRecordAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
     "name": "stakingToken",
     "outputs": [
       {
@@ -863,5 +958,31 @@
     "stateMutability": "payable",
     "type": "receive",
     "payable": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_burnRewardTokenAddress",
+        "type": "address"
+      }
+    ],
+    "name": "setBurnRewardTokenAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_burnTokenAddress",
+        "type": "address"
+      }
+    ],
+    "name": "setBurnTokenAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   }
 ]

@@ -2,6 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import StakingInviter from "../views/staking/StakingInviter.vue";
 import StakingInviterHistory from "../views/staking/StakingInviterHistory.vue";
+import StakingSingleForHecoRecord1 from "../views/staking-single/StakingSingleForHecoRecord1.vue";
+import StakingSingleForHecoRecordHistory1 from "../views/staking-single/StakingSingleForHecoRecordHistory1.vue";
 
 Vue.use(VueRouter);
 
@@ -37,6 +39,24 @@ const routes = [
                 path: "/staking/inviter/1/history",
                 name: "StakingInviter1History",
                 component: StakingInviterHistory
+              }
+            ]
+          },
+          {
+            path: "/staking/single",
+            name: "StakingSingle",
+            redirect: "/staking/single/1",
+            component: () => import("@/layouts/home/ViewBlank.vue"),
+            children: [
+              {
+                path: "/staking/single/1",
+                name: "StakingSingleForHecoRecord1",
+                component: StakingSingleForHecoRecord1
+              },
+              {
+                path: "/staking/single/1/history",
+                name: "StakingSingleForHecoRecordHistory1",
+                component: StakingSingleForHecoRecordHistory1
               }
             ]
           }
